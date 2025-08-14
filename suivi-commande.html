@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suivi de Commande - Amado Shop</title>
+    <meta
+      name="description"
+      content="Suivez l'état de votre commande en temps réel avec Amado Shop."
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <span class="text-emerald">Amado</span> Shop
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="boutique.html">Boutique</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#categories">Catégories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="suivi-commande.html"
+                >Suivi Commande</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header py-5 mt-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-dark mb-3">Suivi de Commande</h1>
+            <p class="lead text-muted">
+              Suivez l'état de votre commande en temps réel
+            </p>
+          </div>
+          <div class="col-lg-6 text-lg-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-lg-end">
+                <li class="breadcrumb-item">
+                  <a href="index.html">Accueil</a>
+                </li>
+                <li class="breadcrumb-item active">Suivi Commande</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recherche Commande -->
+    <section class="tracking-section py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="tracking-form bg-light p-5 rounded shadow-sm">
+              <h3 class="text-center mb-4">Rechercher votre commande</h3>
+              <form id="trackingForm">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="orderNumber" class="form-label"
+                      >Numéro de commande</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="orderNumber"
+                      placeholder="Ex: AMS-2024-001"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phoneNumber" class="form-label"
+                      >Numéro de téléphone</label
+                    >
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phoneNumber"
+                      placeholder="+224 123 456 789"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                      <i class="fas fa-search me-2"></i>Suivre ma commande
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résultat du Suivi -->
+    <section
+      class="tracking-result py-5"
+      id="trackingResult"
+      style="display: none"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="tracking-card bg-white p-5 rounded shadow">
+              <div class="tracking-header text-center mb-4">
+                <h3 id="orderTitle">Commande #AMS-2024-001</h3>
+                <p class="text-muted" id="orderDate">
+                  Passée le 15 janvier 2024
+                </p>
+              </div>
+
+              <!-- Timeline du suivi -->
+              <div class="tracking-timeline">
+                <div class="timeline-item active" id="step1">
+                  <div class="timeline-icon">
+                    <i class="fas fa-check-circle text-success"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h6>Commande confirmée</h6>
+                    <p class="text-muted">
+                      Votre commande a été reçue et confirmée
+                    </p>
+                    <small class="text-muted">15 janvier 2024 - 10:30</small>
+                  </div>
+                </div>
+
+                <div class="timeline-item" id="step2">
+                  <div class="timeline-icon">
+                    <i class="fas fa-box text-primary"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h6>En préparation</h6>
+                    <p class="text-muted">
+                      Votre commande est en cours de préparation
+                    </p>
+                    <small class="text-muted">15 janvier 2024 - 14:15</small>
+                  </div>
+                </div>
+
+                <div class="timeline-item" id="step3">
+                  <div class="timeline-icon">
+                    <i class="fas fa-shipping-fast text-warning"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h6>En livraison</h6>
+                    <p class="text-muted">
+                      Votre commande est en route vers vous
+                    </p>
+                    <small class="text-muted">16 janvier 2024 - 09:00</small>
+                  </div>
+                </div>
+
+                <div class="timeline-item" id="step4">
+                  <div class="timeline-icon">
+                    <i class="fas fa-home text-success"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <h6>Livré</h6>
+                    <p class="text-muted">
+                      Votre commande a été livrée avec succès
+                    </p>
+                    <small class="text-muted">16 janvier 2024 - 15:30</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Détails de la commande -->
+              <div class="order-details mt-5">
+                <h5 class="mb-3">Détails de la commande</h5>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail-item mb-3">
+                      <strong>Statut actuel :</strong>
+                      <span class="badge bg-success ms-2" id="currentStatus"
+                        >Livré</span
+                      >
+                    </div>
+                    <div class="detail-item mb-3">
+                      <strong>Date de livraison estimée :</strong>
+                      <span id="estimatedDelivery">16 janvier 2024</span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="detail-item mb-3">
+                      <strong>Livreur :</strong>
+                      <span id="deliveryPerson">Mamadou Diallo</span>
+                    </div>
+                    <div class="detail-item mb-3">
+                      <strong>Contact livreur :</strong>
+                      <span id="deliveryPhone">+224 987 654 321</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Produits commandés -->
+              <div class="ordered-products mt-4">
+                <h5 class="mb-3">Produits commandés</h5>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Produit</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                      <!-- Les produits seront chargés dynamiquement -->
+                    </tbody>
+                    <tfoot>
+                      <tr class="table-active">
+                        <th colspan="3">Total de la commande</th>
+                        <th id="orderTotal">0 GNF</th>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Actions -->
+              <div class="tracking-actions text-center mt-4">
+                <button
+                  class="btn btn-outline-primary me-3"
+                  onclick="printOrder()"
+                >
+                  <i class="fas fa-print me-2"></i>Imprimer
+                </button>
+                <button class="btn btn-success me-3" onclick="contactSupport()">
+                  <i class="fab fa-whatsapp me-2"></i>Contacter le support
+                </button>
+                <button class="btn btn-secondary" onclick="newSearch()">
+                  <i class="fas fa-search me-2"></i>Nouvelle recherche
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Message d'erreur -->
+    <section class="error-section py-5" id="errorSection" style="display: none">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="error-card bg-light p-5 rounded shadow-sm text-center">
+              <div class="error-icon mb-3">
+                <i class="fas fa-exclamation-triangle fa-3x text-warning"></i>
+              </div>
+              <h4>Commande non trouvée</h4>
+              <p class="text-muted mb-4">
+                Nous n'avons pas trouvé de commande correspondant à vos
+                informations. Vérifiez le numéro de commande et le numéro de
+                téléphone.
+              </p>
+              <button class="btn btn-primary" onclick="showTrackingForm()">
+                <i class="fas fa-search me-2"></i>Nouvelle recherche
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5 class="mb-3"><span class="text-emerald">Amado</span> Shop</h5>
+            <p class="text-muted">
+              Votre boutique premium en Guinée. Qualité, service et satisfaction
+              client garantis.
+            </p>
+            <div class="social-links">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook-f fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-whatsapp fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-twitter fa-lg"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <h6 class="mb-3">Liens Rapides</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-muted text-decoration-none"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a href="boutique.html" class="text-muted text-decoration-none"
+                  >Boutique</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#categories"
+                  class="text-muted text-decoration-none"
+                  >Catégories</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#contact"
+                  class="text-muted text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h6 class="mb-3">Informations</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >À propos de nous</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >Conditions de vente</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >Politique de confidentialité</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none">FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h6 class="mb-3">Newsletter</h6>
+            <p class="text-muted">Restez informé de nos nouveautés</p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Votre email"
+              />
+              <button type="submit" class="btn btn-emerald">S'abonner</button>
+            </form>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0 text-muted">
+              &copy; 2024 Amado Shop. Tous droits réservés.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-0 text-muted">
+              Conçu avec <i class="fas fa-heart text-danger"></i> en Guinée
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/suivi-commande.js"></script>
+  </body>
+</html>

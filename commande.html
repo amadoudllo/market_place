@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passer une commande - Amado Shop</title>
+    <meta
+      name="description"
+      content="Passez votre commande facilement avec paiement à la livraison partout en Guinée."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <span class="text-emerald">Amado</span> Shop
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="boutique.html">Boutique</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Commande</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="page-header py-5 mt-5">
+      <div class="container">
+        <h1 class="display-5 fw-bold mb-2">Passer une commande</h1>
+        <p class="text-muted">Paiement à la livraison, partout en Guinée</p>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card shadow-sm">
+              <div class="card-body p-4">
+                <form id="orderForm">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label class="form-label">Votre nom</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Téléphone</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        placeholder="+224 ..."
+                        required
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Adresse complète</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="address"
+                        placeholder="Quartier, commune, repères..."
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label class="form-label">Produit</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="product"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Quantité</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="quantity"
+                        min="1"
+                        value="1"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label class="form-label">Prix estimé (GNF)</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="price"
+                        min="0"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label">Notes (optionnel)</label>
+                      <textarea
+                        class="form-control"
+                        id="notes"
+                        rows="3"
+                        placeholder="Taille, couleur, créneau de livraison..."
+                      ></textarea>
+                    </div>
+                    <div class="col-12">
+                      <button
+                        class="btn btn-primary btn-lg w-100"
+                        type="submit"
+                      >
+                        <i class="fas fa-paper-plane me-2"></i>Confirmer la
+                        commande
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <div id="orderSuccess" class="alert alert-success mt-3 d-none">
+                  Merci ! Votre commande a été enregistrée. Un agent vous
+                  contactera rapidement pour confirmation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer bg-dark text-white py-4">
+      <div class="container">
+        <div class="text-center text-muted">&copy; 2024 Amado Shop</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/commande.js"></script>
+  </body>
+</html>

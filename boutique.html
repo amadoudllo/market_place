@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boutique - Amado Shop</title>
+    <meta
+      name="description"
+      content="Découvrez notre collection complète de produits premium : mode, électronique, alimentation et accessoires."
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">
+          <span class="text-emerald">Amado</span> Shop
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="boutique.html">Boutique</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#categories">Catégories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="suivi-commande.html">Suivi Commande</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="page-header py-5 mt-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="display-4 fw-bold text-dark mb-3">Notre Boutique</h1>
+            <p class="lead text-muted">
+              Découvrez notre sélection premium de produits de qualité
+            </p>
+          </div>
+          <div class="col-lg-6 text-lg-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-lg-end">
+                <li class="breadcrumb-item">
+                  <a href="index.html">Accueil</a>
+                </li>
+                <li class="breadcrumb-item active">Boutique</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filtres et Recherche -->
+    <section class="filters-section py-4 bg-light">
+      <div class="container">
+        <div class="row g-3 align-items-center">
+          <div class="col-lg-4">
+            <div class="search-box">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="searchInput"
+                  placeholder="Rechercher un produit..."
+                />
+                <button class="btn btn-outline-secondary" type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <select class="form-select" id="categoryFilter">
+              <option value="">Toutes les catégories</option>
+              <option value="mode">Mode</option>
+              <option value="electronique">Électronique</option>
+              <option value="alimentation">Alimentation</option>
+              <option value="accessoires">Accessoires</option>
+            </select>
+          </div>
+          <div class="col-lg-3">
+            <select class="form-select" id="priceFilter">
+              <option value="">Tous les prix</option>
+              <option value="0-50000">0 - 50 000 GNF</option>
+              <option value="50000-100000">50 000 - 100 000 GNF</option>
+              <option value="100000-200000">100 000 - 200 000 GNF</option>
+              <option value="200000+">200 000+ GNF</option>
+            </select>
+          </div>
+          <div class="col-lg-2">
+            <select class="form-select" id="sortFilter">
+              <option value="popular">Plus populaires</option>
+              <option value="price-low">Prix croissant</option>
+              <option value="price-high">Prix décroissant</option>
+              <option value="newest">Plus récents</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produits -->
+    <section class="products-section py-5">
+      <div class="container">
+        <div class="row g-4" id="products-grid">
+          <!-- Les produits seront chargés dynamiquement via JavaScript -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <nav aria-label="Navigation des produits">
+              <ul class="pagination justify-content-center" id="pagination">
+                <!-- Pagination sera générée dynamiquement -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Produit -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="productModalTitle">
+              Détails du Produit
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="productModalBody">
+            <!-- Contenu du modal sera chargé dynamiquement -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+            <button type="button" class="btn btn-primary" id="orderWhatsAppBtn">
+              <i class="fab fa-whatsapp me-2"></i>Commander sur WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5 class="mb-3"><span class="text-emerald">Amado</span> Shop</h5>
+            <p class="text-muted">
+              Votre boutique premium en Guinée. Qualité, service et satisfaction
+              client garantis.
+            </p>
+            <div class="social-links">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook-f fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-whatsapp fa-lg"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-twitter fa-lg"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <h6 class="mb-3">Liens Rapides</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="index.html" class="text-muted text-decoration-none"
+                  >Accueil</a
+                >
+              </li>
+              <li>
+                <a href="boutique.html" class="text-muted text-decoration-none"
+                  >Boutique</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#categories"
+                  class="text-muted text-decoration-none"
+                  >Catégories</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#contact"
+                  class="text-muted text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h6 class="mb-3">Informations</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >À propos de nous</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >Conditions de vente</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none"
+                  >Politique de confidentialité</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-muted text-decoration-none">FAQ</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h6 class="mb-3">Newsletter</h6>
+            <p class="text-muted">Restez informé de nos nouveautés</p>
+            <form class="d-flex">
+              <input
+                type="email"
+                class="form-control me-2"
+                placeholder="Votre email"
+              />
+              <button type="submit" class="btn btn-emerald">S'abonner</button>
+            </form>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0 text-muted">
+              &copy; 2024 Amado Shop. Tous droits réservés.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <p class="mb-0 text-muted">
+              Conçu avec <i class="fas fa-heart text-danger"></i> en Guinée
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/boutique.js"></script>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+/* Amado Shop - Style principal */
+:root {
+  --emerald: #10b981;
+  --emerald-700: #047857;
+  --gold: #c9a227;
+  --gold-500: #b58e1e;
+  --dark: #0f172a;
+  --muted: #6b7280;
+  --bg: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--dark);
+}
+
+.text-emerald {
+  color: var(--emerald) !important;
+}
+.text-gold {
+  color: var(--gold) !important;
+}
+.btn-emerald {
+  background: var(--emerald);
+  color: #fff;
+  border: none;
+}
+.btn-emerald:hover {
+  background: var(--emerald-700);
+  color: #fff;
+}
+
+/* Navbar */
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+.nav-link {
+  font-weight: 500;
+}
+.nav-link.active {
+  color: var(--emerald) !important;
+}
+
+/* Hero */
+.hero-section {
+  position: relative;
+  background: linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.9),
+      rgba(4, 120, 87, 0.9)
+    ),
+    url("../images/hero-bg.jpg") center/cover no-repeat;
+  padding-top: 100px;
+}
+.hero-img {
+  max-height: 520px;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+}
+.hero-content .btn-primary {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.hero-content .btn-primary:hover {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+}
+
+/* Avantages */
+.avantage-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.avantage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.12);
+}
+
+/* Catégories */
+.category-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+}
+.category-image {
+  position: relative;
+}
+.category-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.category-card:hover .category-overlay {
+  opacity: 1;
+}
+.category-overlay h4 {
+  margin: 0 0 4px;
+}
+
+/* Produits */
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.12);
+}
+.product-thumb {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.product-body {
+  padding: 14px 16px;
+}
+.product-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.product-price {
+  color: var(--emerald);
+  font-weight: 700;
+}
+
+/* Testimonials */
+.testimonial-card {
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+.testimonial-rating i {
+  margin-right: 2px;
+}
+
+/* Page header */
+.page-header {
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+/* Contact */
+.contact-form .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(16, 185, 129, 0.2);
+  border-color: var(--emerald);
+}
+
+/* Footer */
+.footer {
+  background: #0b1220 !important;
+}
+.footer hr {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Utilities */
+.badge-gold {
+  background: var(--gold);
+  color: #0b1220;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .hero-img {
+    max-height: 320px;
+    margin-top: 18px;
+  }
+  .category-image img,
+  .product-thumb {
+    height: 180px;
+  }
+}
