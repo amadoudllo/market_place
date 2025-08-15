@@ -1,47 +1,63 @@
-# Amado Shop
+# Amado Shop - Boutique en ligne
 
-Site e‑commerce moderne (HTML/CSS/Bootstrap/JS + PHP + Supabase) pour vente avec paiement à la livraison en Guinée.
+Site e‑commerce moderne (HTML/CSS/Bootstrap/JS + PHP + MySQL) pour vente avec paiement à la livraison en Guinée.
 
-## Structure
+## 🚀 Fonctionnalités
 
-- `index.html` (Accueil), `boutique.html`, `commande.html`, `suivi-commande.html`
-- `admin/index.html` (login), `admin/dashboard.html`
-- `assets/css` styles, `assets/js` scripts
-- `backend/` endpoints PHP (Supabase REST)
+- **Frontend** : Interface moderne avec Bootstrap 5
+- **Backend** : API PHP REST avec base de données MySQL
+- **Gestion** : Panel admin pour produits et commandes
+- **Paiement** : À la livraison (système local Guinée)
 
-## Prérequis
-
-- PHP 8+ (avec cURL)
-- Un projet Supabase (tables: `products`, `orders`, `order_items`, `admins`)
-
-## Configuration
-
-Éditer `backend/config.php` et renseigner:
-
-- `SUPABASE_URL`: URL de votre projet
-- `SUPABASE_SERVICE_KEY`: Service Role Key (à conserver côté serveur)
-
-Dans les scripts JS, remplacez le numéro WhatsApp `+224123456789`.
-
-## Lancement local
-
-Sous Windows PowerShell:
+## 📁 Structure du projet
 
 ```
-php -S 127.0.0.1:8080 -t .
+market_place/
+├── assets/           # CSS, JS, images
+├── backend/          # API PHP (MySQL)
+├── admin/            # Interface d'administration
+├── boutique.html     # Page des produits
+├── commande.html     # Processus de commande
+├── suivi-commande.html # Suivi des commandes
+└── index.html        # Page d'accueil
 ```
 
-Puis ouvrez `http://127.0.0.1:8080/`.
+## 🗄️ Base de données
 
-## Endpoints clés
+- **Système** : MySQL avec phpMyAdmin
+- **Tables** : `products`, `orders`, `order_items`, `admins`
+- **Configuration** : `backend/database_config.php`
 
-- `backend/products/list.php` (liste produits + filtres)
-- `backend/orders/create.php` (création commande)
-- `backend/orders/track.php` (suivi commande)
-- `backend/auth/login.php`, `auth/check.php`, `auth/logout.php`
-- `backend/orders/list.php` (admin), `backend/stats/overview.php`, `backend/export/orders_csv.php`
+## ⚙️ Installation
 
-## Sécurité
+### Prérequis
 
-Les endpoints admin exigent une session via `requireAdmin()`.
-Servez le site derrière un serveur web (Apache/Nginx) et gardez la Service Key côté serveur uniquement.
+- Serveur web (Apache/Nginx) avec PHP 7.4+
+- MySQL 5.7+ ou MariaDB 10.2+
+- Extension PHP PDO MySQL
+
+### Configuration
+
+1. **Cloner le projet** dans votre dossier web
+2. **Configurer la base de données** dans `backend/database_config.php`
+3. **Lancer l'installation** : `php backend/install.php`
+4. **Accéder à l'admin** : `/admin/` (admin/admin123)
+
+### Variables de configuration
+
+- `DB_HOST` : Hôte MySQL (localhost)
+- `DB_NAME` : Nom de la base (amado_shop)
+- `DB_USER` : Utilisateur MySQL
+- `DB_PASS` : Mot de passe MySQL
+
+## 🔧 Développement
+
+Le projet utilise une architecture modulaire avec :
+
+- **API REST** : Endpoints PHP pour CRUD
+- **Sécurité** : Sessions PHP et hachage bcrypt
+- **Responsive** : Design mobile-first avec Bootstrap
+
+## 📝 Licence
+
+MIT License - Voir [LICENSE](LICENSE) pour plus de détails.
